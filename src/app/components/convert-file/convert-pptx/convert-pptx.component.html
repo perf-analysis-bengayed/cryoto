@@ -1,0 +1,126 @@
+<div class="container">
+  <h2>Convertir Pptx en images</h2>
+  <h5>Convertissez vos documents Pptx en images avec une précision incroyable.
+    Alimenté par Solid Documents.</h5>
+  
+  <!-- Champ personnalisé -->
+  <div class="file-input" 
+       (dragover)="onDragOver($event)" 
+       (drop)="onDrop($event)">
+    <input type="file" (change)="onFileSelected($event)" accept=".pptx" id="pptxFileInput">
+
+    <label for="pptxFileInput"class="file-label">Sélectionner un fichier .Pptx</label>
+    <p *ngIf="fileName">Fichier sélectionné: {{ fileName }}</p>
+    
+    <!-- Affichage état upload -->
+    <p *ngIf="uploading" class="file-cours">En cours d'upload...</p>
+    
+    <!-- Gestion erreur -->
+    <p *ngIf="error">{{ error }}</p>
+
+    <!-- Zone de dépôt visible lors du survol -->
+    <div class="drop-zone" [class.active]="isDraggingOver">
+      Déposez un fichier PPTX ici
+    </div>
+  </div>
+
+  <!-- Boutons actions -->
+  <div class="buttons">
+    <button (click)="convertAndDisplayUrl()" class="btn" [disabled]="!fileName || uploading">Convertir votre fichier Pptx</button>
+    <button (click)="onReset()" class="btn btn-reset">Réinitialiser</button>
+  </div>
+
+
+  
+  
+
+</div>
+<br>
+<br>
+
+
+<div class="image-container">
+  <div class="image-grid" [style.gridTemplateColumns]="'repeat(' + imagesPerRow + ', 1fr)'">
+    <div *ngFor="let image of imageList1; let i = index" class="image-item" (click)="toggleSelection(i)">
+      <div class="image-wrapper">
+        <img [src]="image" alt="Image" [ngStyle]="{'width': imageWidth + 'px', 'height': imageHeight + 'px'}">
+        
+        <!-- Checkbox toujours visible en bas à droite de chaque image -->
+        <input 
+          type="checkbox" 
+          [(ngModel)]="selectedImages[i]" 
+          (change)="updateSelectedImages()" 
+          class="checkbox-overlay">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="controls">
+ 
+
+  <label for="folder-name" class="slide-counter">Labelle :</label>
+<input 
+  type="text" 
+  id="folder-name" 
+  [(ngModel)]="fileName"
+  (input)="updateFileName()" 
+  class="file-name-input">
+
+  <label for="folder-name" class="slide-counter">durée par défaut :</label>
+  <input 
+  type="number" 
+  id="numberInput" 
+  value="1" 
+  min="1" 
+  class="number-input"
+/>
+<button (click)="selectAllImages()">
+  <span >📌</span> 
+</button>
+  <span class="symbol">-</span>
+  <input 
+    type="range" 
+    id="range" 
+    min="3" 
+    max="5" 
+    [value]="imagesPerRow"
+    (input)="onRangeChange($event)"
+    class="styled-range"
+    
+  />
+  <span class="symbol">+</span>
+  
+  <span class="percentage">{{ displayPercentage }}%</span>
+
+  <!-- Display selected images count out of total images -->
+  <p class="slide-counter">Diapositives : {{ selectedImageList.length }} / {{ imageList1.length }}</p>
+
+  <div class="button-container">
+    <!-- Télécharger Button -->
+<!-- Bouton Télécharger -->
+<!-- Bouton Télécharger avec un symbole dynamique -->
+<button (click)="downloadSelectedImages()" [disabled]="selectedImageList.length === 0" class="green-button">
+  <span *ngIf="!downloaded">⬇️</span>
+  <span *ngIf="downloaded">✅</span>
+</button>
+
+
+<!-- Bouton Réinitialiser -->
+<button (click)="onResetimage()" >
+  🔄
+</button>
+
+
+  </div>
+  
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,353 @@
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+.file-cours{
+  color: #e4483d;
+}
+
+h2 {
+  color: #333;
+}
+
+input[type="file"] {
+  display: block;
+  margin: 10px auto;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 9px 17px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #87b3e2;
+  color: white;
+  font-size: 16px;
+}
+
+.btn-reset {
+  background-color: #cc2939;
+}
+
+.number-input {
+  width: 35px;
+  text-align: center;
+  font-size: 16px;
+  margin: 5px;
+
+
+
+  padding: 3px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 2px; /* Réduit l'espace au-dessus de l'input */
+  margin-left: 0;
+  margin-right: 5px;
+
+}
+.file-input {
+position: relative;
+margin-bottom: 20px;
+}
+
+.file-input input[type='file'] {
+opacity: 0;
+}
+
+.file-input label {
+cursor: pointer;
+}
+/* Pour rendre le texte de h2 en gras */
+h2 {
+  font-weight: bold; /* ou 700 pour un style plus fort */
+}
+
+/* Pour rendre le texte de h5 flou */
+h5 {
+  text-shadow: none;
+  filter: blur(0.5px); /* Ajustez la valeur selon votre préférence */
+}
+label[for="pptxFileInput"] {
+  color: rgb(0, 0, 0); /* Couleur du texte */
+  background-color: rgb(226, 94, 71); /* Couleur de l'arrière-plan */
+}
+.drop-zone {
+  display: none;
+}
+
+.drop-zone.active {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-color: rgba(0,0,0,0.2);
+  border-radius: inherit;
+}
+
+
+/* Style for the label */
+.file-label {
+  font-size: 16px;            /* Adjust font size */
+  font-weight: bold;          /* Bold text */
+  color: #333;                /* Dark text color */
+  cursor: pointer;           /* Pointer cursor on hover */
+  background-color: #f0f0f0; /* Light background */
+  padding: 10px 15px;         /* Add padding */
+  border-radius: 5px;         /* Rounded corners */
+  display: inline-block;      /* Make the label inline block */
+}
+
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  max-height: 500px;
+  margin-bottom: 50px;
+}
+.file-count-label {
+  font-size: 12px;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 2px; /* Tu peux ajuster cette valeur pour réduire l'espace */
+  display: block;
+  margin-right: 2px; /* Espacement entre le texte et les boutons */
+}
+
+.file-name-input {
+  padding: 3px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  margin-top: 2px; /* Réduit l'espace au-dessus de l'input */
+  margin-bottom: 0; /* Si tu veux également supprimer la marge en bas de l'input */
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+
+.image-grid {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  scroll-margin-left: 50px;
+}
+
+.image-item img {
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.range-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: space-between;
+
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.image-item {
+  position: relative;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.checkbox-overlay {
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
+  width: 13px;
+  height: 15px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  border: 3px solid #007bff; /* Make the border visible */
+}
+
+.checkbox-overlay:checked {
+  background: #007bff; /* Blue background when checked */
+}
+
+
+/* General button style */
+
+.btn i {
+  margin-right: 8px;
+}
+
+/* Download button */
+.btn-download {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-download:hover {
+  background-color: #45a049;
+}
+
+.btn-download:disabled {
+  background-color: #c1e1c1;
+  cursor: not-allowed;
+}
+
+/* Reset button */
+.btn-reset {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-reset:hover {
+  background-color: #e53935;
+}
+
+/* Disabled button */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+
+.range-label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 2px;
+  display: block;
+}
+
+/* Style des symboles */
+.symbol {
+  font-size: 20px; /* Ajuste la taille des symboles */
+  color: blue; /* Change la couleur si nécessaire */
+  margin: 0 0.5px; /* Réduit l'espace entre les symboles et l'input */
+}
+
+/* Style du range */
+.styled-range {
+  width: 18%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: linear-gradient(to right, #d2d2d3, #797777);
+  border-radius: 5px;
+  outline: none;
+  margin-right: 2px; /* Espacement entre le texte et les boutons */
+  margin-bottom: -5px; 
+}
+
+.styled-range:hover {
+  background: linear-gradient(to right, #d2d2d3, #888888);
+}
+
+.styled-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 2px solid #888888;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.styled-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.styled-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 2px solid #888888;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-value {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #47505a;
+}
+
+
+.header-container {
+  display: flex;
+  align-items: center; /* Aligne verticalement tous les éléments */
+  justify-content: center; /* Espace les éléments sur la ligne */
+}
+
+.slide-counter {
+  margin-right: 8px; /* Espacement entre le texte et les boutons */
+  font-size: 12px;
+  margin-bottom: -5px; 
+}
+
+.button-container button {
+  margin-left: 10px; /* Espacement entre les boutons */
+  font-size: 20px; /* Ajuste la taille de l'icône dans le bouton */
+}
+
+.green-button:disabled {
+  cursor: not-allowed;
+}
+
+
+
+/* Symbole de coche toujours affiché */
+button span {
+  font-size: 20px; /* Taille du symbole */
+  margin-right: 8px; /* Espacement entre le symbole et le texte */
+  transition: color 0.3s; /* Transition pour changer la couleur */
+}
+
+button span.selected {
+  color: green; /* Symbole en vert lorsque toutes les images sont sélectionnées */
+}
+
+button span {
+  color: gray; /* Symbole en gris lorsque pas toutes les images sont sélectionnées */
+}
+
