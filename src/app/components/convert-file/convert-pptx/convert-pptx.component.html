@@ -39,6 +39,7 @@
 <br>
 
 
+
 <div class="image-container">
   <div class="image-grid" [style.gridTemplateColumns]="'repeat(' + imagesPerRow + ', 1fr)'">
     <div *ngFor="let image of imageList1; let i = index" class="image-item" (click)="toggleSelection(i)">
@@ -77,7 +78,7 @@
   min="1" 
   class="number-input"
 />
-<button (click)="selectAllImages()">
+<button (click)="selectAllImages()" class="button-container">
   <span >📌</span> 
 </button>
   <span class="symbol">-</span>
@@ -102,14 +103,14 @@
     <!-- Télécharger Button -->
 <!-- Bouton Télécharger -->
 <!-- Bouton Télécharger avec un symbole dynamique -->
-<button (click)="downloadSelectedImages()" [disabled]="selectedImageList.length === 0" class="green-button">
+<button (click)="downloadSelectedImages()" [disabled]="selectedImageList.length === 0"  class="button-container">
   <span *ngIf="!downloaded">⬇️</span>
   <span *ngIf="downloaded">✅</span>
 </button>
 
 
 <!-- Bouton Réinitialiser -->
-<button (click)="onResetimage()" >
+<button (click)="onResetimage()"  class="button-container">
   🔄
 </button>
 

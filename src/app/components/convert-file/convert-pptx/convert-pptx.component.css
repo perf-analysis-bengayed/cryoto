@@ -119,6 +119,7 @@ label[for="pptxFileInput"] {
   padding-bottom: 10px;
   max-height: 500px;
   margin-bottom: 50px;
+  margin-left:20px;
 }
 .file-count-label {
   font-size: 12px;
@@ -147,7 +148,7 @@ label[for="pptxFileInput"] {
   gap: 5px;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   scroll-margin-left: 50px;
 }
 
@@ -332,6 +333,7 @@ button:disabled {
 
 .green-button:disabled {
   cursor: not-allowed;
+  
 }
 
 
