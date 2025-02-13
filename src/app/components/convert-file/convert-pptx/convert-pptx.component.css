@@ -31,23 +31,18 @@ input[type="file"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #87b3e2;
+  background-color: #6f9fd3;
   color: white;
   font-size: 16px;
 }
 
-.btn-reset {
-  background-color: #cc2939;
-}
+
 
 .number-input {
   width: 35px;
   text-align: center;
   font-size: 16px;
   margin: 5px;
-
-
-
   padding: 3px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -205,11 +200,11 @@ label[for="pptxFileInput"] {
   cursor: pointer;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 3px;
-  border: 3px solid #007bff; /* Make the border visible */
+  border: 3px solid #5799df; /* Make the border visible */
 }
 
 .checkbox-overlay:checked {
-  background: #007bff; /* Blue background when checked */
+  background: #5799df; /* Blue background when checked */
 }
 
 
@@ -236,12 +231,12 @@ label[for="pptxFileInput"] {
 
 /* Reset button */
 .btn-reset {
-  background-color: #f44336;
+  background-color: #df574d;
   color: white;
 }
 
 .btn-reset:hover {
-  background-color: #e53935;
+  background-color: #db1310;
 }
 
 /* Disabled button */
@@ -262,7 +257,7 @@ button:disabled {
 /* Style des symboles */
 .symbol {
   font-size: 20px; /* Ajuste la taille des symboles */
-  color: blue; /* Change la couleur si nécessaire */
+  color: rgb(46, 46, 219); /* Change la couleur si nécessaire */
   margin: 0 0.5px; /* Réduit l'espace entre les symboles et l'input */
 }
 
