@@ -74,9 +74,12 @@ export class ConvertPptxComponent {
       link.click();
       document.body.removeChild(link);
       this.downloaded = true;
+
       setTimeout(() => {
         this.downloaded = false;
-      }, 4000);
+        this.selectedImages.fill(false);
+        this.selectedImageList=[];
+      }, 5000);
     });
      // Après le téléchargement, change le symbole
   
@@ -122,8 +125,8 @@ export class ConvertPptxComponent {
   
     if (this.imagesPerRow < 3) {
       this.imagesPerRow = 3;
-    } else if (this.imagesPerRow > 7) {
-      this.imagesPerRow = 7;
+    } else if (this.imagesPerRow > 5) {
+      this.imagesPerRow = 5;
     }
   
     // Mise à jour du pourcentage sans afficher le nombre d'images
