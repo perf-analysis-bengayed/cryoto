@@ -76,7 +76,7 @@ h5 {
 }
 label[for="pptxFileInput"] {
   color: rgb(0, 0, 0); /* Couleur du texte */
-  background-color: rgb(226, 94, 71); /* Couleur de l'arrière-plan */
+  background-color: rgb(236, 140, 123); /* Couleur de l'arrière-plan */
 }
 .drop-zone {
   display: none;
@@ -231,7 +231,7 @@ label[for="pptxFileInput"] {
 
 /* Reset button */
 .btn-reset {
-  background-color: #df574d;
+  background-color: #c2615b;
   color: white;
 }
 

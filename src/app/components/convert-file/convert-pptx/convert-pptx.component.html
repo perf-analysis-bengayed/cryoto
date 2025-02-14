@@ -41,7 +41,7 @@
 
 <div class="image-container">
   <div class="image-grid" [style.gridTemplateColumns]="'repeat(' + imagesPerRow + ', 1fr)'">
-    <div *ngFor="let image of imageList1; let i = index" class="image-item" (click)="toggleSelection(i)">
+    <div *ngFor="let image of images; let i = index" class="image-item" (click)="toggleSelection(i)">
       <div class="image-wrapper">
         <img [src]="image" alt="Image" [ngStyle]="{'width': imageWidth + 'px', 'height': imageHeight + 'px'}">
 

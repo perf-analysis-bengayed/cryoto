@@ -15,25 +15,25 @@ export class ConvertPptxComponent {
   isDraggingOver = false;
   public listeImages: string[] = [];
   imageList1 = [
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
-    "../assets/images/MainBefore.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
+    "../assets/images/images.jpg",
 
 
   ];
@@ -46,13 +46,24 @@ export class ConvertPptxComponent {
   defaultNumber: number = 1;
   displayPercentage: number = 50; // Valeur initiale
   downloaded: boolean = false;
+  images: string[] = [];
   constructor(private convertService: ConvertService) { }
 
   getRange(n: number): number[] {
     return Array(n).fill(0).map((_, i) => i);
   }
   ngOnInit() {
-    this.selectedImages = new Array(this.imageList1.length).fill(false);
+  this.fetchImages();
+  }
+
+  fetchImages(): void {
+    this.convertService.getImages().subscribe(response => {
+      this.images = response.listeImages;
+    });
+  }
+  
+  updateSelectedImages(): void {
+    this.selectedImageList = this.imageList1.filter((_, index) => this.selectedImages[index]);
   }
 
   updateFileName(): void {
@@ -65,6 +76,7 @@ export class ConvertPptxComponent {
       return;
     }
 
+  
     this.selectedImageList.forEach((image, index) => {
       const link = document.createElement('a');
       link.href = image;
@@ -99,14 +111,17 @@ export class ConvertPptxComponent {
     }
   }
 
-  toggleSelection(i: number): void {
-    this.selectedImages[i] = !this.selectedImages[i];
+
+
+
+  toggleSelection(index: number): void {
+    this.selectedImages[index] = !this.selectedImages[index];
     this.updateSelectedImages();
   }
 
-  updateSelectedImages(): void {
-    this.selectedImageList = this.imageList1.filter((_, index) => this.selectedImages[index]);
-  }
+
+
+
 
   onRangeChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -178,32 +193,42 @@ export class ConvertPptxComponent {
     if (this.fileContent) {
       this.uploading = true;
       const formData = new FormData();
-      formData.append('file', this.fileContent);
-
-      this.convertService.postData(apiUrl, formData).subscribe(
-        (response: { url?: string }) => {
+      formData.append('file', this.fileContent, this.fileContent.name);  // Ajoutez le nom du fichier pour la clarté
+  
+      // Utilisation du service pour envoyer la requête POST avec FormData
+      this.convertService.uploadFile1(apiUrl, formData).subscribe(
+        (response: { filename?: string }) => {
           console.log('Réponse de l\'API:', response);
-          if (response && response.url) {
-            alert(`Fichier ajouté avec succès ! Voici le lien : ${response.url}`);
-            this.imageList.push(response.url);
+          if (response && response.filename) {
+            alert(`Fichier PPTX ajouté avec succès ! Nom du fichier : ${response.filename}`);
           } else {
-            alert('Aucune URL générée.');
+            alert('Fichier PPTX ajouté avec succès, mais le nom du fichier n\'a pas été retourné.');
           }
         },
-        (error: unknown) => {
+        (error: any) => { 
           console.error('Erreur lors de l\'upload:', error);
           alert('Échec de l\'ajout du fichier.');
+        },
+        () => {
+          this.uploading = false;
         }
       );
     } else {
       alert('Veuillez sélectionner un fichier avant de l\'ajouter.');
     }
   }
-  convertAndDisplayUrl(): void {
-    const apiUrl = 'http://localhost/api/convert-pptx';
-    this.onUpload(apiUrl);
-  }
+  
 
+  
+  
+  
+  
+  convertAndDisplayUrl(): void {
+    const apiUrl = 'http://localhost:3000/upload'; // URL corrigée vers ton API Node.js
+    this.onUpload(apiUrl);
+    
+  }
+  
 
   onReset(): void {
     this.fileName = '';
