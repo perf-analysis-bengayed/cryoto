@@ -223,12 +223,23 @@ export class ConvertPptxComponent {
   
   
   
+  // convertAndDisplayUrl1(): void {
+  //   const apiUrl = 'http://localhost:3000/upload'; // URL corrigée vers ton API Node.js
+  //   this.onUpload(apiUrl);
+
+  // }
+
   convertAndDisplayUrl(): void {
-    const apiUrl = 'http://localhost:3000/upload'; // URL corrigée vers ton API Node.js
+    const apiUrl = 'http://localhost:3000/upload'; 
+
     this.onUpload(apiUrl);
-    
+    if (apiUrl && apiUrl.startsWith('http')) {
+      this.fileName = '';  
+    } else {
+      console.error('L\'URL est invalide.');
+    }
   }
-  
+
 
   onReset(): void {
     this.fileName = '';
